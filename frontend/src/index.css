@@ -386,3 +386,34 @@ body {
   color: var(--danger);
   font-size: 13px;
 }
+
+/* Your existing CSS... */
+
+body {
+  margin: 0;
+}
+
+/* Lots of other CSS... */
+
+/* ===== Paste this at the very end ===== */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  /* ...rest of the mobile CSS... */
+}

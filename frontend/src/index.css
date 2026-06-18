@@ -176,6 +176,8 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 100;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .navbar::after {
@@ -193,7 +195,8 @@ body::after {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 160px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .brand-icon {
@@ -216,12 +219,14 @@ body::after {
   display: flex;
   gap: 6px;
   flex: 1;
+  min-width: 0;
   justify-content: center;
   background: rgba(255, 255, 255, 0.03);
   padding: 6px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
@@ -242,6 +247,7 @@ body::after {
   transition: var(--transition-smooth);
   position: relative;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-tab:hover {
@@ -259,7 +265,8 @@ body::after {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-width: 160px;
+  min-width: 0;
+  flex-shrink: 1;
   justify-content: flex-end;
 }
 
@@ -267,6 +274,10 @@ body::after {
   font-size: 13px;
   color: var(--text-secondary);
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
 }
 
 /* ── Premium Cards ───────────────────────── */
@@ -1294,16 +1305,14 @@ body::after {
   .navbar-tabs {
     order: 3;
     width: 100%;
+    max-width: 100%;
     justify-content: flex-start;
+    mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
   }
 
   .nav-tab {
     padding: 8px 14px;
     font-size: 12px;
-  }
-
-  .navbar-user {
-    min-width: auto;
   }
 
   .stats-grid {
